@@ -8,12 +8,17 @@
 <body>
     <input type="text" id="name" placeholder="Enter Your Name">
     <button id="save" onclick="save()">Save</button>
-    <p id="message">Hello Everyone</p>
+    <p id="message">
+        Hello Everyone
+    </p>
     <script>
         function save(){
             const nameElement = document.getElementById(`name`);
             const userName = nameElement.value;
             localStorage.setItem(`name`,userName);
+
+            const messageElement = document.getElementById(`message`);
+            messageElement.innerText =`Hello ${nameElement.value}`;
         }
 
     </script>
