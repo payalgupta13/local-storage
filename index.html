@@ -8,12 +8,19 @@
 <body>
     <input type="text" id="name" placeholder="Enter Your Name">
     <button id="save" onclick="save()">Save</button>
+    <button id="logout" onclick="logout()">Logout</button>
     <p id="message">
         Hello Everyone
     </p>
     <script>
+
+    const nameElement = document.getElementById(`name`);
+    const messageElement = document.getElementById(`message`);
+    const btnElement = document.getElementById(`save`);
+
+
         function save(){
-            const nameElement = document.getElementById(`name`);
+            // const nameElement = document.getElementById(`name`);
             const userName = nameElement.value;
             localStorage.setItem(`name`,userName);
 
@@ -22,15 +29,27 @@
                 return;
             }
 
-            const messageElement = document.getElementById(`message`);
+            // const messageElement = document.getElementById(`message`);
             messageElement.innerText =`Hello ${userName}`;
 
-            const btnElement = document.getElementById(`save`);
+            // const btnElement = document.getElementById(`save`);
             btnElement.style.display = `none`;
             nameElement.style.display= `none`;
         }
 
-    </script>
-    
+        const userName = localStorage.getItem(`name`);
+
+        if(userName){
+            messageElement.innerText = `Hello ${userName}`;
+            btnElement.style.display = `none`;
+            nameElement.style.display = `none`;
+        }
+        function logout(){
+            localStorage.removeItem(`name`);
+            window.location.reload();
+        }
+
+
+     </script>
 </body>
 </html>
