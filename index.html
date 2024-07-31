@@ -7,9 +7,12 @@
 </head>
 <body>
     <input type="text" id="name" placeholder="Enter Your Name">
-    <button id="save"></button>
+    <button id="save" onclick="save()">Save</button>
     <script>
-
+        function save(){
+            const nameElement = document.getElementById(`name`);
+            const userName = nameElement.value;
+        }
 
     </script>
     
