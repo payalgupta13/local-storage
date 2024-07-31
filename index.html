@@ -17,10 +17,16 @@
             const userName = nameElement.value;
             localStorage.setItem(`name`,userName);
 
+            if(!userName){
+                alert('please enter your name');
+                return;
+            }
+
             const messageElement = document.getElementById(`message`);
             messageElement.innerText =`Hello ${userName}`;
 
             const btnElement = document.getElementById(`save`);
+            btnElement.style.display = `none`;
         }
 
     </script>
